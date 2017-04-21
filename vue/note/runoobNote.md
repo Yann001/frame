@@ -75,16 +75,20 @@ $ cnpm run dev
 > Listening at http://localhost:8080
 ```
 成功执行以上命令后访问 http://localhost:8080/，输出结果如下所示：
+
 ![img](http://i2.muimg.com/567571/b52dd736b69d8a2e.jpg)
+
 *注意：Vue.js 不支持 IE8 及其以下 IE 版本。*
 
 ## Vue.js 目录结构
 上一章节中我们使用了 npm 安装项目，我们在 IDE中打开该目录，结构如下所示：
+
 ![img](http://i2.muimg.com/567571/56152d9fe44bf554.jpg)
+
 **目录解析**
 
 |目录/文件|说明
-|--
+|--|--
 |bulid|最终发布的代码存放位置。
 |config	|配置目录，包括端口号等。我们初学可以使用默认的。
 |node_modules|npm 加载的项目依赖模块
