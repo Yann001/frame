@@ -1,6 +1,6 @@
 # Angular.js Study Note（runoob)
 
->根据RUNOOB.COM MongoDB教程整理
+>根据RUNOOB.COM Angular教程整理
 >网址：http://www.runoob.com/angularjs/angularjs-tutorial.html
 
 **目录**
