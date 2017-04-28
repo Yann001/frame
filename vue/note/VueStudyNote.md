@@ -8,18 +8,25 @@
 [TOC]
 
 ## Vue.js 安装
-#### 1. 独立版本
+
+### 1. 独立版本
+
 我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用<**script**>标签引入。
+
 [下载Vue.js](https:vuejs.org/js/vue.min.js)
-#### 2. 使用CDN方法
+
+### 2. 使用CDN方法
+
 以下推荐国外比较稳定的两个 CDN，国内还没发现哪一家比较好，目前还是建议下载到本地。
 - BootCDN（国内） : https://cdn.bootcss.com/vue/2.2.2/vue.min.js
 - unpkg：https://unpkg.com/vue/dist/vue.js, 会保持和 npm 发布的最新的版本一致。
 - cdnjs : https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js
 
-#### 3. NPM 方法
+### 3. NPM 方法
+
 由于 npm 安装速度慢，本教程使用了淘宝的镜像及其命令 cnpm
 npm 版本需要大于 3.0，如果低于此版本需要升级它：
+
 ```js
 # 查看版本
 $ npm -v
@@ -28,13 +35,18 @@ $ npm -v
 #升级 npm
 cnpm install npm -g
 ```
+
 在用 Vue.js 构建大型应用时推荐使用 NPM 安装：
+
 ```js
 # 最新稳定版
 $ cnpm install vue
 ```
-#### 命令行工具
+
+### 命令行工具
+
 Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。
+
 ```js
 # 全局安装 vue-cli
 $ cnpm install --global vue-cli
@@ -64,8 +76,10 @@ For Vue 1.x use: vue init webpack#1.0 my-project
 
    Documentation can be found at https://vuejs-templates.github.io/webpack
 ```
+
 进入项目，安装并运行：
 *注意：默认监听8080端口，如端口被别的程序占用，run dev会失败*
+
 ```js
 $ cd my-project
 $ cnpm install
@@ -101,11 +115,15 @@ $ cnpm run dev
 |README.md|项目的说明文档，markdown 格式
 
 ## Vue.js模板语法
+
 Vue.js 使用了基于 HTML 的模版语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据。
 Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统。
 结合响应系统，在应用状态改变时，Vue能够智能地计算出重新渲染组件的最小代价并应用到 DOM 操作上
-#### 插值
-##### 文本
+
+### 插值
+
+#### 文本
+
 数据绑定最常见的形式就是使用 {{...}}（双大括号）的文本插值：
 
 ```xml
@@ -113,8 +131,11 @@ Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将�
     <p>{{ message }}</p>
 </div>
 ```
-##### Html
+
+#### Html
+
 使用 v-html 指令用于输出 html 代码：
+
 ```xml
 <!--v-html指令-->
 <div id="app">
@@ -129,9 +150,12 @@ Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将�
     })
 </script>
 ```
-#### 属性
+
+### 属性
+
 HTML 属性中的值应使用 v-bind 指令。
 以下实例判断 class1 的值，如果为 true 使用 class1 类的样式，否则不使用该类：
+
 ```xml
 <!--v-bind指令-->
 <div id="app">
@@ -150,8 +174,11 @@ new Vue({
 });
 </script>
 ```
-#### 表达式
+
+### 表达式
+
 Vue.js 都提供了完全的 JavaScript 表达式支持。
+
 ```xml
 <!--javaScript表达式-->
 <div id="app">
@@ -171,9 +198,11 @@ new Vue({
 })
 </script>
 ```
-#### 指令
+
+### 指令
 指令是带有 v- 前缀的特殊属性。
 指令用于在表达式的值改变时，将某些行为应用到 DOM 上。
+
 ```xml
 <div id="app">
     <p v-if="seen">现在你看到我了</p>
@@ -188,10 +217,14 @@ new Vue({
 })
 </script>
 ```
+
 这里， v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素。
 参数
-#### 参数
+
+### 参数
+
 参数在指令后以冒号指明。例如， v-bind 指令被用来响应地更新 HTML 属性：
+
 ```xml
 <div id="app">
     <pre><a v-bind:href="url">菜鸟教程</a></pre>
@@ -208,13 +241,19 @@ new Vue({
 })
 </script>
 ```
-#### 修饰符
+
+### 修饰符
+
 修饰符是以半角句号 . 指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
+
 ```xml
 <form v-on:submit.prevent="onSubmit"></form>
 ```
-#### 用户输入
+
+### 用户输入
+
 在 input 输入框中我们可以使用 v-model 指令来实现双向数据绑定：
+
 ```xml
 <div id="app">
     <p>{{ message }}</p>
@@ -229,8 +268,10 @@ new Vue({
 })
 </script>
 ```
+
 按钮的事件我们可以使用 v-on 监听事件，并对用户的输入进行响应。
 以下实例在用户点击按钮后对字符串进行反转操作：
+
 ```xml
 <!--字符串反转-->
 <div id="app">
@@ -251,8 +292,11 @@ new Vue({
 })
 </script>
 ```
-#### 过滤器
+
+### 过滤器
+
 Vue.js 允许你自定义过滤器，被用作一些常见的文本格式化。由"管道符"指示, 格式如下：
+
 ```xml
 <!-- 在两个大括号中 -->
 {{ message | capitalize }}
@@ -282,7 +326,9 @@ new Vue({
 })
 </script>
 ```
+
 过滤器可以串联：
+
 ```xml
 {{ message | filterA | filterB }}
 ```
@@ -291,9 +337,12 @@ new Vue({
 {{ message | filterA('arg1', arg2) }}
 ```
 这里，message 是第一个参数，字符串 'arg1' 将传给过滤器作为第二个参数， arg2 表达式的值将被求值然后传给过滤器作为第三个参数。
-#### 缩写
+
+### 缩写
+
 **v-bind 缩写**
 Vue.js 为两个最为常用的指令提供了特别的缩写：
+
 ```xml
 <!-- 完整语法 -->
 <a v-bind:href="url"></a>
@@ -307,16 +356,23 @@ Vue.js 为两个最为常用的指令提供了特别的缩写：
 <!-- 缩写 -->
 <a @click="doSomething"></a>
 ```
-#### Vue 实例
-##### 构造器
+
+### Vue 实例
+
+#### 构造器
+
 每个 Vue.js 应用都是通过构造函数 Vue 创建一个 Vue 的根实例来启动的：
+
 ```js
 var vm = new Vue({
   // 选项
 })
 ```
-##### 属性与方法
+
+#### 属性与方法
+
 每个 Vue 实例都会代理其 data 对象里所有的属性：
+
 ```js
 var data = { a: 1 }
 var vm = new Vue({
@@ -330,7 +386,9 @@ data.a // -> 2
 data.a = 3
 vm.a // -> 3
 ```
+
 除了 data 属性， Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的 data 属性区分。例如：
+
 ```js
 var data = { a: 1 }
 var vm = new Vue({
@@ -344,3 +402,234 @@ vm.$watch('a', function (newVal, oldVal) {
   // 这个回调将在 `vm.a`  改变后调用
 })
 ```
+
+## Vue.js 条件与循环
+
+### 条件判断
+
+**v-if**
+
+条件判断使用 v-if 指令：
+在元素 和 template 中使用 v-if 指令：
+
+```xml
+<div id="app">
+    <p v-if="seen">现在你看到我了</p>
+    <template v-if="ok">
+      <h1>菜鸟教程</h1>
+      <p>学的不仅是技术，更是梦想！</p>
+      <p>哈哈啥，打字辛苦啊！！！</p>
+    </template>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    seen: true,
+    ok: true
+  }
+})
+</script>
+```
+这里， v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素。
+
+**v-else**
+
+随机生成一个数字，判断是否大于0.5，然后输出对应信息：
+
+```xml
+<div id="app">
+    <div v-if="Math.random() > 0.5">
+      Sorry
+    </div>
+    <div v-else>
+      Not sorry
+    </div>
+</div>
+
+<script>
+new Vue({
+  el: '#app'
+})
+</script>
+```
+
+**v-else-if**
+
+```xml
+<div id="app">
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
+    </div>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    type: 'C'
+  }
+})
+</script>
+```
+
+*v-else 、v-else-if 必须跟在 v-if 或者 v-else-if之后。*
+
+**v-show**
+
+```xml
+<h1 v-show="ok">Hello!</h1>
+```
+*注意: v-show 不支持 < template > 语法。*
+
+## 循环语句
+
+循环使用 v-for 指令。
+v-for 指令需要以 **item in items** 形式的特殊语法， items 是源数据数组并且 item 是数组元素迭代的别名。
+v-for 可以绑定数据到数组来渲染一个列表：
+
+```xml
+<div id="app">
+  <ol>
+    <li v-for="site in sites">
+      {{ site.name }}
+    </li>
+  </ol>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    sites: [
+      { name: 'Runoob' },
+      { name: 'Google' },
+      { name: 'Taobao' }
+    ]
+  }
+})
+</script>
+```
+
+模板中使用 v-for：
+```xml
+<ul>
+  <template v-for="site in sites">
+    <li>{{ item.name }}</li>
+    <li>--------------</li>
+  </template>
+</ul>
+```
+
+**for 迭代对象**
+
+v-for 可以通过一个对象的属性来迭代数据：
+
+```xml
+<div id="app">
+  <ul>
+    <li v-for="value in object">
+    {{ value }}
+    </li>
+  </ul>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    object: {
+      name: '菜鸟教程',
+      url: 'http://www.runoob.com',
+      slogan: '学的不仅是技术，更是梦想！'
+    }
+  }
+})
+</script>
+```
+
+也可以提供第二个的参数为键名：
+
+```xml
+<div id="app">
+  <ul>
+    <li v-for="(value, key) in object">
+    {{ key }} : {{ value }}
+    </li>
+  </ul>
+</div>
+```
+
+第三个参数为索引：
+
+```xml
+v-for
+<div id="app">
+  <ul>
+    <li v-for="(value, key, index) in object">
+     {{ index }}. {{ key }} : {{ value }}
+    </li>
+  </ul>
+</div>
+```
+
+**v-for 迭代整数**
+
+v-for 也可以循环整数
+
+```xml
+v-for
+<div id="app">
+  <ul>
+    <li v-for="n in 10">
+     {{ n }}
+    </li>
+  </ul>
+</div>
+```
+
+## Vue.js 计算属性
+
+计算属性关键词: computed。
+
+。。。。。。
+
+## Vue.js 样式绑定
+
+。。。。。。
+
+## Vue.js 事件处理器
+
+。。。。。。
+
+## Vue.js 表单
+
+。。。。。。
+
+## Vue.js 自定义指令
+
+。。。。。。
+
+## Vue.js 路由
+
+。。。。。。
+
+
+
+
+
+
+
+
+
+
