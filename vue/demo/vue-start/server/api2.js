@@ -28,7 +28,7 @@ router.post('/api2/registry/createAccount',(req, res) => {
 // 获取已有账号接口
 router.get('/api2/login/getAccount',(req, res) => {
     // 通过模型去查找数据库
-    models.registryModel.registryModel({}, (err, data) => {
+    models.registryModel.find({}, (err, data) => {
         if (err) {
             res.send(err);
         } else {
