@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myMemoApp">
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+	<body>
+		<div ng-controller="myMemoCtrl">
+			<h2>我的备忘录</h2>
+			<form>
+				<input type="text" ng-model="todoInput" value="新增" />
+				<button type="submit" ng-click="todoAdd()" value="新增">新增</button>
+			</form>
+			<div ng-repeat="x in todoList">
+				<label><input type="checkbox" ng-model="x.done" /><span ng-bind="x.todoText"></span></label>
+			</div>
+			<p><button ng-click="remove()">删除记录</button></p>
+		</div>
+		<script src="js/memo/myMemoApp.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/memo/myMemoCtrl.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
