@@ -6,7 +6,7 @@
         <legend>GET请求</legend>
         <div class="requset">
           <label for="query-params">查询参数</label>
-          <input type="text" class="" id="query-params">
+          <input type="text" class="" id="query-params" v-model="getQueryParams">
           <button @click="sendGet">GET</button>
         </div>
         <div class="response">
@@ -25,12 +25,17 @@
     data () {
       return {
         msg: 'Hello Http!',
-        getResult: ''
+        getResult: '',
+        getQueryParams: ''
       }
     },
     methods: {
       sendGet: function () {
-        this.$http.get('api/getData')
+        this.$http({
+          method: 'get',
+          params: this.getQueryParams,
+          url: 'api/test/getData'
+        })
         .then((res) => {
           console.log(res)
         }, (error) => {
