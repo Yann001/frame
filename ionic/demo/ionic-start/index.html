@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ionicApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="css/ionic.min.css">
+  <script src="js/ionic.bundle.min.js"></script>
+  <title>ionic start</title>
+</head>
+<body ng-controller="ionicCtrl">
+  <!-- <ion-header-bar class="bar-positive">
+    <h1 class="title">Hello World</h1>
+  </ion-header-bar>
+  <ion-content has-subheader="false">
+    <p>My first ionic App</p>
+  </ion-content> -->
+  <ion-side-menus>
+    <ion-side-menu-content drag-content="true"></ion-side-menu-content>
+    <ion-side-menu side="left"></ion-side-menu>
+  </ion-side-menus>
+  <script>
+    let app = angular.module('ionicApp', ['ionic'])
+    app.controller('ionicCtrl', ($scope) => {
+
+    })
+  </script>
+</body>
+</html>
